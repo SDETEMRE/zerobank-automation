@@ -1,0 +1,43 @@
+package com.zerobank.pages;
+
+import com.zerobank.utilities.Driver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
+
+import java.util.List;
+
+public class AccountSummaryPage {
+
+    public AccountSummaryPage() {
+        PageFactory.initElements(Driver.get(), this);
+    }
+
+    @FindBy(partialLinkText = "Savings")
+    public WebElement savingsButton;
+
+    @FindBy(id = "aa_accountId")
+    public WebElement dropdownElement;
+
+    @FindBy(partialLinkText = "Brokerage")
+    public WebElement brokerageButton;
+
+    @FindBy(partialLinkText = "Checking")
+    public WebElement checkingLink;
+
+    @FindBy(partialLinkText = "Credit Card")
+    public WebElement creditCard;
+
+    @FindBy(partialLinkText = "Loan")
+    public WebElement loan;
+
+
+    public String dropDownAccount(int order) {
+        Select stateDropdown = new Select(dropdownElement);
+        List<WebElement> options = stateDropdown.getOptions();
+        String selectedOrder = options.get(order).getText();
+        return selectedOrder;
+    }
+}
+
