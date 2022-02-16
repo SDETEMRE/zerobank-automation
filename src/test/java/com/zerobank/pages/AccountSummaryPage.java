@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
-public class AccountSummaryPage {
+public class AccountSummaryPage extends BasePage{
 
     public AccountSummaryPage() {
         PageFactory.initElements(Driver.get(), this);
@@ -31,6 +31,13 @@ public class AccountSummaryPage {
 
     @FindBy(partialLinkText = "Loan")
     public WebElement loan;
+
+    @FindBy(css = ".board-header")
+    public List<WebElement> accountTypes;
+
+    @FindBy(xpath = "(//thead)[3]//th")
+    public List<WebElement> creditAccountsColumns;
+
 
 
     public String dropDownAccount(int order) {

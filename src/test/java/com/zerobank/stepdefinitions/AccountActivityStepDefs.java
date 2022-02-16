@@ -13,16 +13,13 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 public class AccountActivityStepDefs {
+
     @Given("the user is logged in")
     public void the_user_is_logged_in() {
-
-       String url = ConfigurationReader.get("url");
-       Driver.get().get(url);
 
        String username = ConfigurationReader.get("username");
        String password = ConfigurationReader.get("password");
        new LoginPage().login(username,password);
-       BrowserUtils.waitFor(2);
 
     }
 
@@ -91,4 +88,6 @@ public class AccountActivityStepDefs {
         AccountSummaryPage accountSummaryPage = new AccountSummaryPage();
         Assert.assertTrue(accountSummaryPage.dropDownAccount(3).equals("Loan"));
     }
+
+
 }
