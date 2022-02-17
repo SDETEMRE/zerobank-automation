@@ -1,5 +1,6 @@
 package com.zerobank.pages;
 
+import com.zerobank.utilities.BrowserUtils;
 import com.zerobank.utilities.ConfigurationReader;
 import com.zerobank.utilities.Driver;
 import org.openqa.selenium.By;
@@ -27,12 +28,13 @@ public class LoginPage extends BasePage{
     @FindBy(css = ".alert.alert-error")
     public WebElement errorMessage;
 
-
     public void login(String userNameStr, String passwordStr){
         signinButton.click();
         userName.sendKeys(userNameStr);
         password.sendKeys(passwordStr);
         submit.click();
+
+
     }
 
 

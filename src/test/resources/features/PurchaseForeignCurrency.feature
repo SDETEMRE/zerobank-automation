@@ -1,5 +1,6 @@
 Feature: Purchase Foreign Currency
 
+  @smoke
   Scenario: Available currencies
     Given the user is logged in
     Given the user accesses the Pay Bills tab

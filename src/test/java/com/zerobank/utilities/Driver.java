@@ -25,13 +25,19 @@ public class Driver {
         if (driver == null) {
             // this line will tell which browser should open based on the value from properties file
             String browser = ConfigurationReader.get("browser");
-            ChromeOptions handlingSSL = new ChromeOptions();
-            handlingSSL.setAcceptInsecureCerts(true);
-            switch (browser) {
+                switch (browser) {
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver(handlingSSL);
+                    driver = new ChromeDriver();
                     break;
+
+                case "chrome_73":
+                    ChromeOptions options = new ChromeOptions();
+                    options.setBinary("C:\\Users\\dncsy\\Downloads\\Win_619326_chrome-win\\chrome-win\\chrome.exe");
+                    WebDriverManager.chromedriver().driverVersion("73.0.3683.68").setup();
+                    driver = new ChromeDriver(options);
+                    break;
+
                 case "chrome-headless":
                     WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver(new ChromeOptions().setHeadless(true));
